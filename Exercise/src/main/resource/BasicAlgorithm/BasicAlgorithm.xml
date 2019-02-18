@@ -5,6 +5,15 @@
    <test name = "Basic Algorithms">
       <classes>
          <class name = "myWorkspace.Exercise.BasicAlgorithmTest" />
+         <methods>
+         <include name="fibonacciSeries"/>
+         <include name="fibonacciSeriesTillNumber"/>
+         <include name="frequencyOfCharacters"/>
+         <include name="printDate_Time"/>
+         <include name="rearrange"/>
+         <include name="removeDuplicates"/>
+         <include name="reverse"/>
+         </methods>
       </classes>
    </test>
     

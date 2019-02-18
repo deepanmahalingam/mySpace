@@ -6,8 +6,16 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class BasicAlgorithms 
+import com.aventstack.extentreports.Status;
+
+import myWorkspace.Framework.Reporter;
+
+public class BasicAlgorithms
 {
+	/*public static void main(String[] args)
+	{
+		frequencyOfCharacters();
+	}*/
 	public static void frequencyOfCharacters()
 	{
 		String name = "ahbdjkjvvnvvnvbfsbvbbf";
@@ -25,24 +33,28 @@ public class BasicAlgorithms
 				map.put(name.charAt(i), count);
 			}
 		}
-		System.out.println(map);
+		Reporter.test.log(Status.INFO, map.toString());
+		Reporter.test.log(Status.PASS, "passed");
+		
 	}
 
 	public static void reverse()
 	{
 		String name ="deepan";
 		String rN ="";
-		System.out.println(name.length());
+		Reporter.test.log(Status.INFO,"lenfth od string is "+name.length());
 		for(int i=name.length()-1;i>=0;i--)
 		{
 			rN = rN+name.charAt(i);
 		}
-		System.out.println("Reversed String is "+ rN);	
+		Reporter.test.log(Status.INFO, "Reversed String is "+rN);
+		Reporter.test.log(Status.PASS, "passed");
 	}
 
 	public static void removeDuplicates()
 	{
 		String name="deepan";
+		Reporter.test.log(Status.INFO, "String to be processed is  "+ name);
 		//HashSet<Character> set = new HashSet<>();
 		ArrayList<Character> list = new ArrayList<Character>();
 		String newString="";
@@ -54,14 +66,16 @@ public class BasicAlgorithms
 			newString=newString+name.charAt(i);
 			}
 		}
-		//String newString =list.toString();
-		System.out.println(newString);
+		
+		Reporter.test.log(Status.INFO, "Prossed string is "+ newString);
+		Reporter.test.log(Status.PASS, "passed");
 		
 	}
 
 	public static void rearrange() 
 	{
 		String name="#d33p@k";
+		Reporter.test.log(Status.INFO, "String to be processed is  "+ name);
 		String alphabets="";
 		String digits="";
 		String specialChar="";
@@ -80,20 +94,22 @@ public class BasicAlgorithms
 				specialChar=specialChar+name.charAt(i);
 			}
 		}
-		System.out.println("output is ---->   "+alphabets+digits+specialChar);
+		Reporter.test.log(Status.INFO, "Prossed string is "+ alphabets+digits+specialChar);
+		Reporter.test.log(Status.PASS, "passed");
 	}
 
 	public static void fibonacciSeries()
 	{
-		@SuppressWarnings("resource")
-		Scanner read = new Scanner(System.in);
+		//@SuppressWarnings("resource")
+	/*	Scanner read = new Scanner(System.in);
 		System.out.println("Type the number for fibonacci");
-		int limit = read.nextInt();
+		int limit = read.nextInt();*/
+		int limit =10;
 	    int first =0;
 	    int second =1;
 	    for(int i=0;i<=limit;i++)
 	    {
-	    	System.out.print(first +" + ");
+	    	Reporter.test.log(Status.INFO, first +" + ");
 	    	int sum=first+second;
 	    	first=second;
 	    	second=sum;
@@ -103,27 +119,29 @@ public class BasicAlgorithms
 	
 	public static void fibonacciSeriesTillNumber()
 	{
-		Scanner read = new Scanner(System.in);
-		System.out.println("ebter the number");
-		int limit=read.nextInt();
+		/*Scanner read = new Scanner(System.in);
+		System.out.println("ebter the number");*/
+		int limit=20;
 		int first=0;
 		int second=1;
 		while(first<=limit)
 		{
-			System.out.print(first + " + ");
+			
+			Reporter.test.log(Status.INFO, first +" + ");
 			int sum = first+second;
 			first=second;
 			second=sum;
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	public static void printDate_Time()
 	{
 		Calendar cal = Calendar.getInstance();
-		System.out.println(cal.getTime());
-		System.out.println(cal.getTimeZone());
+		Reporter.test.log(Status.INFO, "current time "+ cal.getTime().toString());
+		Reporter.test.log(Status.INFO, "current time zone "+cal.getTimeZone().toString());
 		Date date = new Date();
-		System.out.println(date.getDate());
-		System.out.println(date.getDay());
+		Reporter.test.log(Status.INFO, "current date "+ date.getDate());
+		Reporter.test.log(Status.INFO, "current day "+ date.getDay());
 	}
 }
